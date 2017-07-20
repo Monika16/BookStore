@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <div class="content">
 	<div class="row">
 		<div class="col-xs-12">
@@ -22,9 +23,18 @@
 			<hr/>
 			<h4>Price: <strong>&#36; ${product.unitPrice}</strong></h4>
 			<hr/>
-			<h6>Quantity: ${product.quantity}</h6>
+
+			<c:choose>
+				<c:when test="${product.quantity < 1}">
+					<h6>Quantity: <span style="color:red">Out of Stock!</span></h6>
+					<a href = "javascript:void(0)" class="btn btn-success disabled"><span class="glyphicon glyphicon-shopping-cart"></span> Add to Cart</a>
+				</c:when>
+				<c:otherwise>
+					<h6>Quantity: ${product.quantity}</h6>
+					<a href = "${contextRoot}/cart/add/${product.id}/product" class="btn btn-success"><span class="glyphicon glyphicon-shopping-cart"></span> Add to Cart</a>
+				</c:otherwise>
+			</c:choose>
 			
-			<a href = "${contextRoot}/cart/add/${product.id}/product" class="btn btn-success"><span class="glyphicon glyphicon-shopping-cart"></span></a>
 			<a href = "${contextRoot}/show/all/products" class="btn btn-primary">Back</a>
 		</div>
 	</div>

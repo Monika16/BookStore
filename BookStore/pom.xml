@@ -35,6 +35,19 @@
 			<scope>test</scope>
 		</dependency>
 
+		<!-- Spring Core -->
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-core</artifactId>
+			<version>${spring.version}</version>
+			<exclusions>
+				<exclusion>
+					<groupId>commons-logging</groupId>
+					<artifactId>commons-logging</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+
 		<!-- spring-webmvc -->
 		<dependency>
 			<groupId>org.springframework</groupId>
