@@ -22,12 +22,16 @@
 <title>BookShop Homepage - ${title}</title>
 <script type="text/javascript">
 	window.menu = '${title}';
+	window.contextRoot = '${contextRoot}';
 </script>
 <!-- Bootstrap Core CSS -->
 <link href="${css}/bootstrap.min.css" rel="stylesheet">
 
 <!-- Bootswatch theme Slate -->
 <link href="${css}/bootswatch-theme-slate.css" rel="stylesheet">
+
+<!-- DataTable Css -->
+<link href="${css}/dataTables.bootstrap.css" rel="stylesheet">
 
 <!-- Custom CSS -->
 <link href="${css}/myapp.css" rel="stylesheet">
@@ -66,6 +70,10 @@
 				<%@ include file="listProducts.jsp"%>
 			</c:if>
 			
+			<c:if test="${userClickShowProject == true}">
+				<%@ include file="singleProduct.jsp"%>
+			</c:if>
+			
 		</div>
 		
 		<!-- Footer -->
@@ -76,7 +84,13 @@
 
 		<!-- Bootstrap Core JavaScript -->
 		<script src="${js}/bootstrap.min.js"></script>
-
+		
+		<!-- datatables plugin -->
+		<script src="${js}/jquery.dataTables.js"></script>
+		
+		<!-- datatables bootstrap -->
+		<script src="${js}/dataTables.bootstrap.js"></script>
+		
 		<!-- Self coded js file -->
 		<script src="${js}/myapp.js"></script>
 	</div>
