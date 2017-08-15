@@ -62,6 +62,13 @@
 			<version>1.2</version>
 		</dependency>
 
+		<!--Spring-webflow -->
+		<dependency>
+			<groupId>org.springframework.webflow</groupId>
+			<artifactId>spring-webflow</artifactId>
+			<version>2.4.5.RELEASE</version>
+		</dependency>
+
 	</dependencies>
 
 
