@@ -16,7 +16,7 @@ CREATE TABLE user_detail (
 	last_name VARCHAR(50),
 	role VARCHAR(50),
 	enabled BOOLEAN,
-	password VARCHAR(50),
+	password VARCHAR(60),
 	email VARCHAR(100),
 	contact_number VARCHAR(15),	
 	CONSTRAINT pk_user_id PRIMARY KEY(id),
@@ -75,11 +75,11 @@ INSERT into category (name,description,image_url,is_active)
 		values ('Drama','It is about Drama!','CAT_3.png',true);
 		
 INSERT into user_detail (first_name,last_name,role,enabled,password,email,contact_number) values
-	('Monika','Thokala','ADMIN',true,'admin','m@gmail.com','206-897-3456');
+	('Monika','Thokala','ADMIN',true,'$2a$06$sQx99g2aOgNzklXGseEEI.kJ/WFJExvv30LyPe.jQbW9ONy2WLr0m','m@gmail.com','206-897-3456');
 INSERT into user_detail (first_name,last_name,role,enabled,password,email,contact_number) values
-	('Sam','Jones','SUPPLIER',true,'1234','s@gmail.com','206-123-4561');
+	('Sam','Jones','SUPPLIER',true,'$2a$06$.JWwJ35ynb8Jg5Eu3ig79eYhTrhFzje5CSOjICfSwMq/6ZMUKrkjC','s@gmail.com','206-123-4561');
 INSERT into user_detail (first_name,last_name,role,enabled,password,email,contact_number) values
-	('Arya','Staples','SUPPLIER',true,'1234','a@gmail.com','206-887-9012');
+	('Arya','Staples','SUPPLIER',true,'$2a$06$tli6He0LUs5TnA3UxS2o.ebJ7UJTb4Y6Dahu8VZ5Gh.3mfafBdyeS','a@gmail.com','206-887-9012');
 
 INSERT into address (user_id,adress_line_one,address_line_two,city,state,country,postal_code,is_billing,is_shipping) values
 	(2,'No.234','Snow St.','Edission','New Jersey','US','93501',true,false);
