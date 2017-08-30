@@ -13,6 +13,9 @@ $(function() {
 	case 'Manage Products':
 		$('#manageProducts').addClass('active');
 		break;
+	case 'User Cart':
+		$('#userCart').addClass('active');
+		break;
 	default:
 		if (menu == "Home")
 			break;
@@ -300,6 +303,35 @@ $(function() {
 				}
 		});
 	}
+	
+	//handling click event for refresh cart event
+	
+	$('button[name="refreshCart"]').click(function(){
+		
+		var cartLineId = $(this).attr('value');
+		var countElement = $('#count_' + cartLineId);
+		
+		var originalCount = countElement.attr('value');
+		var currentCount = countElement.val();
+		
+		//refresh works only if current count has changed from the original count
+		if(currentCount !== originalCount){
+			
+			if(currentCount < 1 || currentCount > 3){
+				//reverting to your original count
+				countElement.val(originalCount);
+				bootbox.alert({
+					size:'medium',
+					title:'Error',
+					message:'Product Count should be greater than 1 and less than 3'
+				});
+			}
+			else{
+				var updateUrl = window.contextRoot + '/cart/' + cartLineId + '/update?count=' + currentCount;
+				window.location.href= updateUrl;
+			}
+		}
+	});
 	
 
 });

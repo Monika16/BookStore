@@ -60,12 +60,27 @@ CREATE TABLE address (
 CREATE TABLE cart (
 	id IDENTITY,
 	user_id int,
-	grand_total DECIMAL(10,2),
+	grand_total decimal(10,2),
 	cart_lines int,
 	CONSTRAINT fk_cart_user_id FOREIGN KEY (user_id ) REFERENCES user_detail (id),
 	CONSTRAINT pk_cart_id PRIMARY KEY (id)
 );
 
+CREATE TABLE cart_line (
+	id IDENTITY,
+	cart_id int,
+	total decimal(10,2),
+	product_id int,
+	product_count int,
+	buying_price decimal(10,2),
+	is_available boolean,
+	CONSTRAINT fk_cartline_cart_id FOREIGN KEY (cart_id) REFERENCES cart (id),
+	CONSTRAINT fk_cartline_product_id FOREIGN KEY (product_id) REFERENCES product (id),
+    CONSTRAINT pk_cartline_id PRIMARY KEY (id) 
+);
+
+
+---- insert commands
 
 INSERT into category (name,description,image_url,is_active)
 		values ('Thrillers','It is about Mystery!','CAT_1.png',true);
